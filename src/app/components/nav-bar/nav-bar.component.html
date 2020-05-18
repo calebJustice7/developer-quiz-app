@@ -1,0 +1,33 @@
+<div class="nav-bar-wrapper">
+    <div class="left">DEV QUIZZES</div>
+    <div class="center">
+        <div routerLinkActive="active-link" [routerLink]="['/sign-in']">Home</div>
+        <div routerLinkActive="active-link" [routerLink]="['/quizzes']" (click)="showSnackbar('Must be logged in', 'Close')">Quizzes</div>
+        <div routerLinkActive="active-link" [routerLink]="['/stats/:userid']" (click)="showSnackbar('Must be logged in', 'Close')">Stats</div>
+    </div>
+    <div class="right">
+        <button>Contact</button>
+    </div>
+</div>
+<div class="header-wrapper">
+    <div *ngIf="authService.signedIn; else notLoggedIn">Welcome back {{ userName }}!</div>
+    <ng-template #notLoggedIn><div>Not signed In</div></ng-template>
+</div>
+
+
+<!-- <div class="nav-bar-wrapper">
+    <div *ngIf="authService.signedIn; else notLoggedIn" class="left">
+        {{ userName }}
+    </div>
+    <ng-template #notLoggedIn>
+        <div class="left">Not signed in</div>
+    </ng-template>
+    <div class="center">
+        <img src="../../../assets/logo.png" />
+    </div>
+    <div class="right">
+        <div routerLinkActive="active-link" [routerLink]="['/sign-in']">Home</div>
+        <div routerLinkActive="active-link" [routerLink]="['/quizzes']">Quizzes</div>
+        <div routerLinkActive="active-link" [routerLink]="['/stats/:userid']">Stats</div>
+    </div>
+</div> -->

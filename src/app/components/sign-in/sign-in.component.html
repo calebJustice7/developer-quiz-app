@@ -1,0 +1,26 @@
+<div class="home-page-wrapper">
+    <div class="center-content">
+        <div class="header">
+            HTML, CSS, AND JAVASCRIPT QUIZZES
+        </div>
+        <mat-card class="title-wrapper">
+            <div class="title"><code><</code>Learn How To Code For Free!<code>></code></div>
+        </mat-card>
+
+        <div class="buttons-wrapper">
+            <button *ngIf="auth.user$ | async as user; else login" mat-raised-button color="primary" (click)="auth.signOut()">Sign Out</button>
+
+            <ng-template #login>
+                <button mat-raised-button color="primary" (click)="auth.googleSignIn()">Sign In</button>
+            </ng-template>
+
+            <button mat-raised-button color="primary" (click)="showSnackbar('Must be logged in!', 'Close')" [routerLink]="['/quizzes']">Go To Quizzes</button>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <app-footer *ngFor="let data of courseData" [courseInfo]="data"></app-footer>
+</div>

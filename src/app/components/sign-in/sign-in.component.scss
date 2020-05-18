@@ -1,0 +1,73 @@
+.home-page-wrapper {
+    padding-top: 7%;
+
+    .center-content {
+        color: white;
+        text-align: center;
+        width: 50%;
+        margin: 0 auto;
+
+        .header {
+            font-size: 2.4em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            font-family: "Montserrat";
+            margin-bottom: 70px;
+        }
+        
+        .title-wrapper {
+            width: 65%;
+            margin:0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 0;
+        }
+        .title {
+            // font-size: 2em;
+            // font-weight: 900;
+            // margin-bottom: 20px;
+            width: 27ch;
+            margin: 0 auto;
+            font-size: 1.45em;
+            animation: type 6s  steps(27) infinite;
+            padding: 1.1em;
+            white-space: nowrap;
+            overflow: hidden;
+            // font-family: 'consolas';
+            border-right: 4px solid black;
+        }
+
+        .buttons-wrapper {
+
+            button {
+                margin: 20px;
+                font-size: 1.28em;
+                letter-spacing: 1px;
+                padding: 4px 20px;
+                display: inline;
+                background-color: #1E86A9;
+            }
+        }
+    }
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #E9EAEF;
+    background-color: #24252A;
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    padding: 30px 0;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(119,126,127,1) 98%, rgba(138,145,147,1) 100%);
+    box-shadow: 0px -3px 5px 0px rgba(0,0,0,0.75);
+}
+
+@keyframes type {
+
+    0% {width: 27ch};
+    15% {width: 0%};
+    60% {width: 27ch};
+}

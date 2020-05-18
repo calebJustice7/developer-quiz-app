@@ -1,0 +1,22 @@
+<div class="quiz-page-wrapper">
+    <div class="quiz-choice-wrapper">
+        <mat-card *ngFor="let choice of categories; let i = index">
+            <mat-card-title [style.color]="choice === 'HTML' ? '#E04A26' : choice === 'CSS' ? '#1A7FB9' : '#F0D91F'">{{ choice }}</mat-card-title>
+            <mat-card-content>
+                <mat-slider max="1" [(ngModel)]="sliderValues[i]" (change)="changeSlider()" step="0.1"></mat-slider>
+                <div>{{ sliderValues[i] > 0.5 ? 'Medium' : 'Easy' }}</div>
+            </mat-card-content>
+            <div>{{ allQuestions[choice].length }} Total Questions</div>
+            <button mat-raised-button (click)="chooseQuiz(choice)">Take Quiz</button>
+        </mat-card>
+    </div>
+
+    <mat-card class="stats-wrapper">
+        <mat-card-title>Total Quizzes Taken: 0</mat-card-title>
+        <mat-card-content>
+            <div>HTML Quizzes Taken: 0</div>
+            <div>CSS Quizzes Taken: 0</div>
+            <div>Javascript Quizzes Taken: 0</div>
+        </mat-card-content>
+    </mat-card>
+</div>

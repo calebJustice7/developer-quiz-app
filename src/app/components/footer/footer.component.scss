@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto&display=swap');
+
+
+.footer-item {
+    font-size: 1.2em;
+
+    .title {
+        text-align: center;
+        font-family: "Montserrat" !important;
+        font-size: 1.2em;
+        letter-spacing: 2px;
+    }
+
+    .icon {
+        width: 60px;
+        height: 60px;
+        text-align: center;
+        font-size: 3.3em;
+        margin: 25px auto;
+        border: 2px solid white;
+        border-radius: 50%;
+        padding: 25px 20px 17px 20px;
+    }
+    .difficulties {
+        text-align: center;
+        font-size: 1.1em;
+
+        div {
+            margin: 5px 0;
+        }
+    }
+}
