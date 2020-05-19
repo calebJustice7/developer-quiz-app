@@ -1,20 +1,14 @@
 import { Injectable } from '@angular/core';
+import { Question } from '../models/question';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuizService {
 
-  constructor(){};
+  constructor() { }
 
-  public quizName: string | undefined = undefined;
+  public val;
 
-  selectQuiz(quiz: string) {
-    this.quizName = quiz;
-  }
-
-  deSelectQuiz(){
-    this.quizName = undefined;
-  }
-
+  public isQuizActive: boolean = false;
 }

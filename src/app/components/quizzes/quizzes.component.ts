@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import questions from '../../../assets/questions.js';
-import { QuizService } from 'src/app/services/quiz.service.js';
 import { Router } from '@angular/router';
+import { QuizService } from 'src/app/services/quiz.service.js';
+import { Question } from 'src/app/models/question.js';
 
 @Component({
   selector: 'app-quizzes',
@@ -12,23 +13,26 @@ export class QuizzesComponent implements OnInit {
 
   public categories = ['CSS', 'HTML', 'Javascript'];
   public allQuestions: any[] = [];
-  public selectedQuestions: any[] = [];
-  public sliderValues = [0, 0, 0]
+  public sliderValues = [0, 0, 0];
+  public selectedQuestions: Question[] = [];
+  public isQuizActive: boolean = false;
 
-  constructor(
-    private router: Router,
-    private quizService: QuizService,
-  ) { }
+  constructor(private router: Router, public quizService: QuizService) { }
 
   ngOnInit(): void {
-    console.log(questions);
     this.allQuestions = questions;
   }
 
-  changeSlider() {}
-
-  chooseQuiz(choice: string) {
-    this.quizService.selectQuiz(choice);
-    this.router.navigate([`/quiz/${choice}`]);
+  takeQuiz(choice: string, index) {
+    let diffNum = this.sliderValues[index];
+    let diffLevel = diffNum < 0.5 ? 'easy' : 'medium';
+    this.selectedQuestions = this.allQuestions[choice].filter(ques => {
+      return ques.difficulty == diffLevel
+    });
+    this.isQuizActive = true;
+  }
+  
+  cancelQuiz(event){
+    this.isQuizActive = event;
   }
 }

@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
 import { FooterComponent } from './components/footer/footer.component';
 import { QuizComponent } from './components/quiz/quiz.component';
+import { QuizResultsComponent } from './components/quiz-results/quiz-results.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { QuizComponent } from './components/quiz/quiz.component';
     QuizzesComponent,
     StatsComponent,
     FooterComponent,
-    QuizComponent
+    QuizComponent,
+    QuizResultsComponent
   ],
   imports: [
     BrowserModule,

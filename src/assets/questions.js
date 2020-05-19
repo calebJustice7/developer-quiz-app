@@ -53,6 +53,19 @@ let questions = {
                 "@media (max-width: 600px)"
             ],
             "correctAnswer": "@media only screen and (max-width: 600px)"
+        }, 
+        {
+            "questionId": "336",
+            "questionCategory": "css",
+            "difficulty": "easy",
+            "question": "What does CSS stand for?",
+            "answers": [
+                "Continuing Style Sheets",
+                "Colorful Style Sheet",
+                "Cascading Sacred Sheets",
+                "Cascading Style Sheets" 
+            ],
+            "correctAnswer": "Cascading Style Sheets"
         }
     ],
     "Javascript": [
