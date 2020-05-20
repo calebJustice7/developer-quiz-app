@@ -1,0 +1,92 @@
+@mixin redBtn {
+    background-color: #FF4539;
+    color: white;
+    font-size: 1.1em;
+}
+
+@mixin greenBtn {
+    background-color: #31D158;
+    color: white;
+    font-size: 1.1em;
+}
+
+.quiz-results-wrapper {
+    width: 93%;
+    margin: 0 auto;
+    padding-top: 60px;
+
+    mat-card {
+        border: 1px solid #cbcbcb;
+    }
+
+    .details {
+        margin-top: 25px;
+
+        .result-message {
+            font-weight: 600;
+            font-size: 1.5em;
+        }
+
+        .quiz-details {
+            margin-top: 35px;
+            margin-bottom: 38px;
+            font-size: 1.26em;
+            span {
+                font-weight: 550;
+            }
+            div {
+                margin: 14px 0;
+            }
+        }
+
+        .results {
+            padding: 18px;
+            margin: 15px;
+
+            .num-answered-correctly {
+                font-size: 1.55em;
+                letter-spacing: 1px;
+                font-weight: 400;
+            }
+            .time-spent {
+                margin: 28px 0;
+                font-size: 1.15em;
+                span {
+                    font-weight: 500;
+                    font-size: 1.1em;
+                }
+            }
+            .overall-score {
+                font-size: 1.4em;
+                font-weight: 380;
+                letter-spacing: 1px;
+                margin-bottom: 30px;
+            }
+            .averages {
+                .your-average {
+                    font-size: 1.2em;
+                    font-weight: 390;
+                }
+            }
+        }
+        .buttons-wrapper {
+            margin-top: 20px;
+            button:first-child {
+                @include greenBtn();
+                margin-left: 10px;
+                margin-right: 20px;
+            }
+            button:last-child {
+                @include redBtn();
+            }
+        }
+    }
+}
+
+.failed-background {
+    background-color: rgba(255,69,57, 0.5);
+}
+
+.passed-background {
+    background-color: rgba(52,199,89, 0.5);
+}

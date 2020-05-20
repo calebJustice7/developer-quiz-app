@@ -1,0 +1,94 @@
+.stats-page-wrapper {
+    width: 94%;
+    margin: 0 auto;
+    margin-top: 45px;
+
+    > mat-card {
+        padding: 34px;
+        background-color: #F1F1F1;
+
+        mat-card-title {
+            font-size: 2.2em;
+            text-align: center;
+        }
+
+        mat-card-content {
+
+            .total-quizzes {
+
+                .stats {
+                    margin-top: 60px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    
+                    > div:first-child {
+                        div:first-child {
+                            color: blue;
+                        }
+                        div:last-child {
+                            font-weight: bold;
+                            font-size: 1.1em;
+                        }
+                    }
+                    > div {
+                        padding: 40px 0;
+                        background-color: white;
+                        border-radius: 4px;
+                        width: 20%;
+                        text-align: center;
+                        border-top: 20px solid green;
+
+                        div:first-child{
+                            font-size: 3em;
+                            color: orange;
+                            font-weight: bold;
+                            margin-bottom: 35px;
+                        }
+                    }
+                }
+            }
+            .averages {
+
+                .title {
+                    margin: 50px 0;
+                    font-size: 2.1em;
+                    margin-left: 20px;
+                    font-weight: 600;
+                    text-align: center;
+                }
+                
+                .stats {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-evenly;
+
+                    >div:first-child {
+                        div:first-child {
+                            color: blue;
+                        }
+                        div:last-child {
+                            font-weight: bold;
+                            font-size: 1.1em;
+                        }
+                    }
+                    > div {
+                        padding: 40px 0;
+                        background-color: white;
+                        border-radius: 4px;
+                        width: 20%;
+                        text-align: center;
+                        border-top: 20px solid orangered;
+
+                        div:first-child {
+                            font-size: 2.6em;
+                            color: purple;
+                            font-weight: bold;
+                            margin-bottom: 35px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

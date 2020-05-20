@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { QuizService } from 'src/app/services/quiz.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -29,10 +30,21 @@ export class SignInComponent implements OnInit {
 
   constructor(
     public auth: AuthService,
-    public _snackBar: MatSnackBar
+    public _snackBar: MatSnackBar,
+    private quiz: QuizService
   ) { }
 
+  public sub;
+
   ngOnInit(): void {
+    this.sub = this.auth.user$.subscribe(user => {
+      this.quiz.val = {
+        answersArr: [],
+        numOfQuestions: 0,
+        questions: 0,
+        user: user
+      }
+    })
   }
 
   showSnackbar(message: string, action: string) {

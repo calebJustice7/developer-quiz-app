@@ -9,6 +9,5 @@ export class QuizService {
   constructor() { }
 
   public val;
-
   public isQuizActive: boolean = false;
 }

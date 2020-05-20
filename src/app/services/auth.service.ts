@@ -20,11 +20,11 @@ export class AuthService {
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
-    private router: Router
-  ) { 
+    private router: Router,
+  ) {
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
-        if(user) {
+        if (user) {
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
           return of(null);
@@ -57,5 +57,14 @@ export class AuthService {
 
     this.signedIn = true;
     return userRef.set(data, { merge: true });
+  }
+
+  returnStats(id){
+    return this.afs.collection('stats').doc(id).valueChanges();
+  }
+
+  saveStats(id, data) {
+    const statsRef: AngularFirestoreDocument<any> = this.afs.doc(`stats/${id}`);
+    statsRef.set(data);
   }
 }

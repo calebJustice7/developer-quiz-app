@@ -25,7 +25,7 @@ export class QuizzesComponent implements OnInit {
 
   takeQuiz(choice: string, index) {
     let diffNum = this.sliderValues[index];
-    let diffLevel = diffNum < 0.5 ? 'easy' : 'medium';
+    let diffLevel = diffNum <= 0.5 ? 'easy' : 'medium';
     this.selectedQuestions = this.allQuestions[choice].filter(ques => {
       return ques.difficulty == diffLevel
     });

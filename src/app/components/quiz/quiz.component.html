@@ -10,7 +10,7 @@
         <mat-card class="question">{{ activeQuestion.question }}</mat-card>
 
         <mat-card class="answers" *ngFor="let ans of activeQuestion.answers; let i = index">
-            <div [style.color]="" (click)="selectAnswer(ans, i)">{{ ans }}</div>
+            <div [class]="ans.selected == true ? 'selected-answer' : ''" (click)="selectAnswer(ans.ans, i)">{{ ans.ans }}</div>
         </mat-card>
 
         <mat-card class="buttons-wrapper">

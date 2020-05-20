@@ -1,5 +1,5 @@
 .home-page-wrapper {
-    padding-top: 7%;
+    padding-top: 9%;
 
     .center-content {
         color: white;
@@ -25,10 +25,10 @@
             // font-size: 2em;
             // font-weight: 900;
             // margin-bottom: 20px;
-            width: 27ch;
+            width: 17ch;
             margin: 0 auto;
             font-size: 1.45em;
-            animation: type 6s  steps(27) infinite;
+            animation: type 5s  steps(27) infinite;
             padding: 1.1em;
             white-space: nowrap;
             overflow: hidden;
@@ -67,7 +67,7 @@
 
 @keyframes type {
 
-    0% {width: 27ch};
+    0% {width: 17ch};
     15% {width: 0%};
-    60% {width: 27ch};
+    60% {width: 17ch};
 }

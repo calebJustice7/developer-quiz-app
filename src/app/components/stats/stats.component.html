@@ -1,1 +1,36 @@
-<p>stats works!</p>
+<div class="stats-page-wrapper" *ngIf="displayContent">
+    <mat-card>
+        <mat-card-title>Stats for {{ quizService.val.user.displayName }}</mat-card-title>
+        <mat-card-content>
+            <div class="total-quizzes">
+                <div class="stats">
+                    <div>
+                        <div>{{ stats.quizzesTaken }}</div>
+                        <div>Total Quizzes Taken</div>
+                    </div>
+                    <div>
+                        <div>{{ stats.htmlQuizzesTaken }}</div>
+                        <div>HTML Quizzes Taken</div>
+                    </div>
+                    <div>
+                        <div>{{ stats.cssQuizzesTaken }}</div>
+                        <div>CSS Quizzes Taken</div>
+                    </div>
+                    <div>
+                        <div>{{ stats.JsQuizzesTaken }}</div>
+                        <div>Javascript Quizzes Taken</div>
+                    </div>
+                </div>
+            </div>
+            <div class="averages">
+                <div class="title">Averages</div>
+                <div class="stats">
+                    <div class="stat" *ngFor="let average of averages">
+                        <div>{{ average.average == 1 ? '100' : average.average | number: '1.2-2' }}%</div>
+                        <div>Average For {{ average.name }}</div>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

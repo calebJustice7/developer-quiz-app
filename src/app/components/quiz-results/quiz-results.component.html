@@ -1,1 +1,27 @@
-<p>quiz-results works!</p>
+<div class="quiz-results-wrapper" *ngIf="quizService.val != undefined">
+    <mat-card class="details">
+        <mat-card-content class="result-message">Results</mat-card-content>
+        <mat-card-content class="quiz-details">
+            <div class="quiz-name">Category: <span>{{ quizInfo.questions[0].questionCategory | uppercase }}</span></div>
+            <div class="quiz-difficulty">Difficulty: <span>{{ quizInfo.questions[0].difficulty | titlecase}}</span></div>
+        </mat-card-content>
+
+        <mat-card [class]="questionResults.score > .7 ? 'results passed-background' : 'results failed-background'">
+            <div class="num-answered-correctly">{{ questionResults.numRight }} of {{ quizInfo.numOfQuestions }} questions answered correctly</div>
+            <div class="time-spent">Your Time: <span>00:00:00</span></div>
+
+            <mat-card class="overall-score">
+                You scored {{ questionResults.numRight }} correctly. Total Score 
+                <span>({{ questionResults.score == 1 ? 100 : questionResults.score| number: '1.1-2' }}%)</span>
+            </mat-card>
+
+            <!-- <mat-card class="averages">
+                <div class="your-average">Your Average For {{ quizInfo.questions[0].questionCategory | uppercase }}: <span>66%</span></div>
+            </mat-card> -->
+        </mat-card>
+        <mat-card-content class="buttons-wrapper">
+            <button mat-raised-button [routerLink]="['/quizzes']">Back To Quizzes</button>
+            <button mat-raised-button (click)="navigateToStats()">Stats</button>
+        </mat-card-content>
+    </mat-card>
+</div>

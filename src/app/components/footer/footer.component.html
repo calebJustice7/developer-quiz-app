@@ -3,7 +3,4 @@
     <div class="icon">
         <i [style.color]="courseInfo.name === 'HTML' ? '#E04A26' : courseInfo.name === 'CSS' ? '#1A7FB9' : 'yellow'" [class]="courseInfo.iconClass"></i>
     </div>
-    <div class="difficulties" *ngFor="let diff of courseInfo.difficulties">
-        <div>{{ diff }}</div>
-    </div>
 </div>

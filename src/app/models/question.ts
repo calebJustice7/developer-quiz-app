@@ -1,5 +1,5 @@
 export interface Question {
-    answers: string[],
+    answers: any[],
     correctAnswer: string,
     difficulty: string,
     question: string,
