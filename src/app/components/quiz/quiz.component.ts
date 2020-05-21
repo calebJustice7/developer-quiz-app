@@ -4,6 +4,7 @@ import { Question } from 'src/app/models/question';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-quiz',
@@ -23,8 +24,28 @@ export class QuizComponent implements OnInit, OnDestroy {
   public answersArr: boolean[] = [];
   public sub;
   private userData: User;
+  public timer;
+  public timerSub;
+  public times = {
+    ms: 0,
+    s: 0,
+    m: 0
+  }
 
   ngOnInit(): void { 
+    this.timer = interval(10);
+    this.timerSub = this.timer.subscribe(time => {
+      this.times.ms++;
+      if(this.times.ms == 100) {
+        this.times.ms = 0;
+        this.times.s++;
+      }
+      if(this.times.s == 60) {
+        this.times.s = 0;
+        this.times.m++;
+      }
+    })
+
     this.selectQuestion();
     this.numOfQuestions = this.data.length;
     this.answersArr = Array(this.numOfQuestions).fill(false);
@@ -33,8 +54,10 @@ export class QuizComponent implements OnInit, OnDestroy {
       this.userData = user;
     })
   }
+
   ngOnDestroy() {
     this.sub.unsubscribe();
+    this.timerSub.unsubscribe();
   }
   selectQuestion() {
     if(this.numOfQuestions == this.activeQuestionIndex) {
@@ -42,7 +65,8 @@ export class QuizComponent implements OnInit, OnDestroy {
         numOfQuestions: this.numOfQuestions,
         answersArr: this.answersArr,
         questions: this.data,
-        user: this.userData
+        user: this.userData,
+        time: this.times
       }
       this.quizService.val = dataObject;
       this.router.navigate(['/quiz-results']);

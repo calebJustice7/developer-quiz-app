@@ -5,7 +5,7 @@
         <mat-card class="answers" *ngFor="let ans of activeQuestion.answers; let i = index">
             <div 
             [class]="ans.selected == true ? ans.ans == activeQuestion.correctAnswer ? 'correct-answer' : 'incorrect-answer' : ans.ans == activeQuestion.correctAnswer ? 'correct-answer' : ''"
-            >{{ ans.ans }}</div>
+            >{{ ans.ans | titlecase }}</div>
         </mat-card>
 
         <mat-card class="buttons-wrapper">
@@ -16,12 +16,12 @@
     </mat-card>
 </div>
 
-<!-- <div class="modal-wrapper" *ngIf="modalActive">
+<div class="modal-wrapper" *ngIf="modalActive">
     <mat-card class="modal-content">
         <div class="title">Are You Sure You Wish To Quit?</div>
         <div class="buttons-wrapper">
-            <button mat-raised-button (click)="quitQuiz()">Yes</button>
+            <button mat-raised-button (click)="quitReview()">Yes</button>
             <button mat-raised-button (click)="hideModal()">No</button>
         </div>
     </mat-card>
-</div> -->
+</div>

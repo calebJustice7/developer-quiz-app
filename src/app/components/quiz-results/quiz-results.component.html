@@ -8,11 +8,15 @@
 
         <mat-card [class]="questionResults.score > .7 ? 'results passed-background' : 'results failed-background'">
             <div class="num-answered-correctly">{{ questionResults.numRight }} of {{ quizInfo.numOfQuestions }} questions answered correctly</div>
-            <div class="time-spent">Your Time: <span>00:00:00</span></div>
+            <div class="time-spent">Your Time: 
+                <span>
+                    {{ quizInfo.time.m < 10 ? "0" + quizInfo.time.m : quizInfo.time.m }}:{{ quizInfo.time.s < 10 ? "0" + quizInfo.time.s : quizInfo.time.s }}
+                </span>
+            </div>
 
             <mat-card class="overall-score">
                 You scored {{ questionResults.numRight }} correctly. Total Score 
-                <span>({{ questionResults.score == 1 ? 100 : questionResults.score| number: '1.1-2' }}%)</span>
+                <span>({{ questionResults.score == 1 ? 100 : questionResults.score | percent: '1.0' }})</span>
             </mat-card>
 
             <!-- <mat-card class="averages">

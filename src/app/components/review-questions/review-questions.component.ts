@@ -15,6 +15,7 @@ export class ReviewQuestionsComponent implements OnInit {
   public questions: Question[] = [];
   public activeQuestion: Question;
   public activeQuestionIndex = 0;
+  public modalActive: boolean = false;
 
   ngOnInit(): void {
     if(this.quizService.val == undefined) {
@@ -33,8 +34,15 @@ export class ReviewQuestionsComponent implements OnInit {
     }
   }
 
-  showModal() {
-    
+  hideModal() {
+    this.modalActive = false;
+  }
+  showModal(){
+    this.modalActive = true;
+  }
+
+  quitReview() {
+    this.router.navigate(['/quizzes']);
   }
 
   previousQuestion(){

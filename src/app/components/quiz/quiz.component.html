@@ -2,7 +2,7 @@
     <mat-card class="header">
         <div class="timer">
             <span>Time: </span>
-            <span>00:00:00</span>
+            <span>{{ times.m < 10 ? "0" + times.m : times.m }}:{{ times.s < 10 ? "0" + times.s : times.s }}</span>
         </div>
     </mat-card>
 
@@ -10,7 +10,7 @@
         <mat-card class="question">{{ activeQuestion.question }}</mat-card>
 
         <mat-card class="answers" *ngFor="let ans of activeQuestion.answers; let i = index">
-            <div [class]="ans.selected == true ? 'selected-answer' : ''" (click)="selectAnswer(ans.ans, i)">{{ ans.ans }}</div>
+            <div [class]="ans.selected == true ? 'selected-answer' : ''" (click)="selectAnswer(ans.ans, i)">{{ ans.ans | titlecase }}</div>
         </mat-card>
 
         <mat-card class="buttons-wrapper">
