@@ -34,8 +34,8 @@ export class QuizResultsComponent implements OnInit, OnDestroy {
     if(this.sub != undefined) this.sub.unsubscribe();
   }
 
-  navigateToStats(){
-    this.router.navigate([`/stats/${this.quizInfo.user.displayName}`])
+  navigateToReviewQuestions(){
+    this.router.navigate([`/review-questions/${this.quizInfo.questions[0].questionId}`])
   }
 
   getData(){

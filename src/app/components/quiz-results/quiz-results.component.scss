@@ -1,11 +1,5 @@
-@mixin redBtn {
-    background-color: #FF4539;
-    color: white;
-    font-size: 1.1em;
-}
-
-@mixin greenBtn {
-    background-color: #31D158;
+@mixin btn {
+    background-color: #5E5CE6;
     color: white;
     font-size: 1.1em;
 }
@@ -72,12 +66,12 @@
         .buttons-wrapper {
             margin-top: 20px;
             button:first-child {
-                @include greenBtn();
+                @include btn();
                 margin-left: 10px;
                 margin-right: 20px;
             }
             button:last-child {
-                @include redBtn();
+                @include btn();
             }
         }
     }

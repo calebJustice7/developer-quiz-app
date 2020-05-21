@@ -18,6 +18,7 @@ import { environment } from '../environments/environment';
 import { FooterComponent } from './components/footer/footer.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { QuizResultsComponent } from './components/quiz-results/quiz-results.component';
+import { ReviewQuestionsComponent } from './components/review-questions/review-questions.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { QuizResultsComponent } from './components/quiz-results/quiz-results.com
     StatsComponent,
     FooterComponent,
     QuizComponent,
-    QuizResultsComponent
+    QuizResultsComponent,
+    ReviewQuestionsComponent
   ],
   imports: [
     BrowserModule,

@@ -3,16 +3,28 @@
         <mat-card *ngFor="let choice of categories; let i = index">
             <mat-card-title [style.color]="choice === 'HTML' ? '#E04A26' : choice === 'CSS' ? '#1A7FB9' : '#F0D91F'">{{ choice }}</mat-card-title>
             <mat-card-content>
-                <mat-slider max="1" [(ngModel)]="sliderValues[i]" step="0.1"></mat-slider>
+                <mat-slider max="1" (input)="sliderEvent()" [(ngModel)]="sliderValues[i]" step="0.1"></mat-slider>
                 <div>{{ sliderValues[i] <= .5 ? 'Easy' : 'Medium' }}</div>
             </mat-card-content>
             <div>{{ allQuestions[choice].length }} Total Questions</div>
-            <button mat-raised-button (click)="takeQuiz(choice, i)">Take Quiz</button>
+            <button mat-raised-button (click)="select(choice, i)">Select</button>
         </mat-card>
     </div>
-
+    
+    <mat-card class="quiz-category" *ngIf="showMenu">
+        <mat-card-title>Choose category</mat-card-title>
+        <mat-card-content class="num-of-questions">Number of questions in quiz: <strong>{{ questionsToSend.length == 0 ? selectedQuestions.length : questionsToSend.length }}</strong></mat-card-content>
+        <mat-checkbox [checked]="question.selected" (change)="inputChange(question)" *ngFor="let question of filteredQuestions">{{ question.category | titlecase }}</mat-checkbox>
+        <button mat-raised-button (click)="submitQuiz()">Take Quiz</button>
+    </mat-card>
 </div>
 
 <div *ngIf="isQuizActive">
-    <app-quiz (quitEvent)="cancelQuiz($event)" [data]="selectedQuestions"></app-quiz>
+    <app-quiz (quitEvent)="cancelQuiz($event)" [data]="questionsToSend"></app-quiz>
 </div>
+
+<!-- 
+    Test all difficulties no filter
+    Test all difficulties all quizzes no filter
+    Test all difficulties Some / and all filters and quizzes
+ -->

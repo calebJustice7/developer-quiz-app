@@ -1,26 +1,22 @@
-<div class="quiz-wrapper">
-    <mat-card class="header">
-        <div class="timer">
-            <span>Time: </span>
-            <span>00:00:00</span>
-        </div>
-    </mat-card>
-
+<div class="quiz-wrapper" *ngIf="quizService.val != undefined">
     <mat-card class="quiz-question-wrapper">
         <mat-card class="question">{{ activeQuestion.question }}</mat-card>
 
         <mat-card class="answers" *ngFor="let ans of activeQuestion.answers; let i = index">
-            <div [class]="ans.selected == true ? 'selected-answer' : ''" (click)="selectAnswer(ans.ans, i)">{{ ans.ans }}</div>
+            <div 
+            [class]="ans.selected == true ? ans.ans == activeQuestion.correctAnswer ? 'correct-answer' : 'incorrect-answer' : ans.ans == activeQuestion.correctAnswer ? 'correct-answer' : ''"
+            >{{ ans.ans }}</div>
         </mat-card>
 
         <mat-card class="buttons-wrapper">
-            <button mat-raised-button (click)="selectQuestion()">{{ numOfQuestions == activeQuestionIndex ? 'Submit Quiz' : 'Next Question' }}</button>
             <button mat-raised-button (click)="showModal()">Quit</button>
+            <button mat-raised-button (click)="nextQuestion()">Next Question</button>
+            <button mat-raised-button (click)="previousQuestion()">Previous Question</button>
         </mat-card>
     </mat-card>
 </div>
 
-<div class="modal-wrapper" *ngIf="modalActive">
+<!-- <div class="modal-wrapper" *ngIf="modalActive">
     <mat-card class="modal-content">
         <div class="title">Are You Sure You Wish To Quit?</div>
         <div class="buttons-wrapper">
@@ -28,4 +24,4 @@
             <button mat-raised-button (click)="hideModal()">No</button>
         </div>
     </mat-card>
-</div>
+</div> -->

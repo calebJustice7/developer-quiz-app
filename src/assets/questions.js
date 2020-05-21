@@ -43,6 +43,111 @@ let questions = {
                 { "ans": "Home Tool Markup Language", "selected": "false" }
             ],
             "correctAnswer": "Hyper Text Markup Language"
+        },
+        {
+            "questionId": "004",
+            "questionCategory": "html",
+            "difficulty": "easy",
+            "category": "forms",
+            "question": "What is the proper way to hide a password in forms?",
+            "answers": [
+                { "ans": "<input type='hashed'></input>", "selected": "false" },
+                { "ans": "<input type='password'></input>", "selected": "false" },
+                { "ans": "<input type='password'/>", "selected": "false" },
+                { "ans": "<input type='hidden'/>", "selected": "false" }
+            ],
+            "correctAnswer": "<input type='password'/>"
+        },
+        {
+            "questionId": "005",
+            "questionCategory": "html",
+            "difficulty": "medium",
+            "category": "forms",
+            "question": "What attribute do you use to get an input element focused when the form loads?",
+            "answers": [
+                { "ans": "autofocus", "selected": "false" },
+                { "ans": "auto-focus", "selected": "false" },
+                { "ans": "auto-focus='true'", "selected": "false" },
+                { "ans": "focus='true'", "selected": "false" }
+            ],
+            "correctAnswer": "autofocus"
+        },
+        {
+            "questionId": "006",
+            "questionCategory": "html",
+            "difficulty": "easy",
+            "category": "HTML language info",
+            "question": "HTML is a programming language.",
+            "answers": [
+                { "ans": "true", "selected": "false" },
+                { "ans": "false", "selected": "false" },
+            ],
+            "correctAnswer": "false"
+        },
+        {
+            "questionId": "007",
+            "questionCategory": "html",
+            "difficulty": "easy",
+            "category": "HTML language info",
+            "question": "All HTML code renders the same for each browser.",
+            "answers": [
+                { "ans": "false", "selected": "false" },
+                { "ans": "true", "selected": "false" }
+            ],
+            "correctAnswer": "false"
+        },
+        {
+            "questionId": "008",
+            "questionCategory": "html",
+            "difficulty": "easy",
+            "category": "forms",
+            "question": "To have an input field you need the <form> tag around it",
+            "answers": [
+                { "ans": "true", "selected": "false" },
+                { "ans": "false", "selected": "false" }
+            ],
+            "correctAnswer": "false"
+        },
+        {
+            "questionId": "009",
+            "questionCategory": "html",
+            "difficulty": "medium",
+            "category": "forms",
+            "question": "Which of the following is NOT a new form element type in HTML5?",
+            "answers": [
+                { "ans": "color", "selected": "false" },
+                { "ans": "url", "selected": "false" },
+                { "ans": "date-local", "selected": "false" },
+                { "ans": "time", "selected": "false" }
+            ],
+            "correctAnswer": "date-local"
+        },
+        {
+            "questionId": "010",
+            "questionCategory": "html",
+            "difficulty": "medium",
+            "category": "misc",
+            "question": "How would you insert the Copyright sign in HTML?",
+            "answers": [
+                { "ans": "@copyright", "selected": "false" },
+                { "ans": "copyright", "selected": "false" },
+                { "ans": "@copy", "selected": "false" },
+                { "ans": "&copy", "selected": "false" }
+            ],
+            "correctAnswer": "&copy"
+        },
+        {
+            "questionId": "011",
+            "questionCategory": "html",
+            "difficulty": "medium",
+            "category": "misc",
+            "question": "What is an empty element?",
+            "answers": [
+                { "ans": "An element where you haven't added text: <p> </p>", "selected": "false" },
+                { "ans": "HTML elements where no content can be added: <hr>", "selected": "false" },
+                { "ans": "An Input tag with no placeholder value", "selected": "false" }
+            ],
+            "correctAnswer": "HTML elements where no content can be added: <hr>"
         }
     ],
     "CSS": [
@@ -129,6 +234,48 @@ let questions = {
                 { "ans": "div p", "selected": "false" }
             ],
             "correctAnswer": "div p"
+        },
+        {
+            "questionId": "340",
+            "questionCategory": "css",
+            "difficulty": "easy",
+            "category": "CSS language info",
+            "question": "How many ways is it possible to include CSS style in your HTML?",
+            "answers": [
+                { "ans": "2", "selected": "false" },
+                { "ans": "4", "selected": "false" },
+                { "ans": "1", "selected": "false" },
+                { "ans": "3", "selected": "false" }
+            ],
+            "correctAnswer": "3"
+        },
+        {
+            "questionId": "341",
+            "questionCategory": "css",
+            "difficulty": "medium",
+            "category": "misc",
+            "question": "What is the universal selector?",
+            "answers": [
+                { "ans": "A custom selector made for selecting what elements you want", "selected": "false" },
+                { "ans": "A selector made for selecting all HTML elements", "selected": "false" },
+                { "ans": "A custom selector made for selecting all elements", "selected": "false" },
+                { "ans": "A selector made for selecting all elements with classes or ID's", "selected": "false" }
+            ],
+            "correctAnswer": "A selector made for selecting all HTML elements"
+        },
+        {
+            "questionId": "342",
+            "questionCategory": "css",
+            "difficulty": "medium",
+            "category": "misc",
+            "question": "What is the difference between inline, embedded and external style sheets?",
+            "answers": [
+                { "ans": "External is in the head tag, inline is an attribute in the tag, embedded is a seperate file", "selected": "false" },
+                { "ans": "External is in the head tag, inline is a seperate file, embedded is an attribute in the tag", "selected": "false" },
+                { "ans": "External is a seperate file, inline is in the head tag, embedded is an attribute in the tag", "selected": "false" },
+                { "ans": "External is a seperate file, inline is an attribute in the tag, embedded is in the head tag", "selected": "false" }
+            ],
+            "correctAnswer": "External is a seperate file, inline is an attribute in the tag, embedded is in the head tag"
         }
     ],
     "Javascript": [

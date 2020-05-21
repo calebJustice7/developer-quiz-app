@@ -21,6 +21,33 @@
         }
     }
 
+    .quiz-category {
+        width: 24%;
+        margin-right: 80px;
+        margin-top: 78px;
+
+        .num-of-questions {
+            font-size: 1.13em;
+        }
+
+        mat-card-title {
+            margin-bottom: 20px;
+        }
+
+        mat-checkbox {
+            display: block;
+            margin: 6px 0;
+        }
+
+        button {
+            font-size: 1.1em;
+            color: white;
+            background-color: rgb(49,209,88);
+            margin-top: 20px;
+            
+        }
+    }
+
     // .stats-wrapper {
     //     width: 30%;
     //     margin-right: 80px;
