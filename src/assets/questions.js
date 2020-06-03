@@ -79,10 +79,10 @@ let questions = {
             "category": "HTML language info",
             "question": "HTML is a programming language.",
             "answers": [
-                { "ans": "true", "selected": "false" },
-                { "ans": "false", "selected": "false" },
+                { "ans": "True", "selected": "false" },
+                { "ans": "False", "selected": "false" },
             ],
-            "correctAnswer": "false"
+            "correctAnswer": "False"
         },
         {
             "questionId": "007",
@@ -91,22 +91,22 @@ let questions = {
             "category": "HTML language info",
             "question": "All HTML code renders the same for each browser.",
             "answers": [
-                { "ans": "false", "selected": "false" },
-                { "ans": "true", "selected": "false" }
+                { "ans": "False", "selected": "false" },
+                { "ans": "True", "selected": "false" }
             ],
-            "correctAnswer": "false"
+            "correctAnswer": "False"
         },
         {
             "questionId": "008",
             "questionCategory": "html",
             "difficulty": "easy",
             "category": "forms",
-            "question": "To have an input field you need the <form> tag around it",
+            "question": "To have an input field you need the <code><</code>FORM <code>/></code> tag around it",
             "answers": [
-                { "ans": "true", "selected": "false" },
-                { "ans": "false", "selected": "false" }
+                { "ans": "True", "selected": "false" },
+                { "ans": "False", "selected": "false" }
             ],
-            "correctAnswer": "false"
+            "correctAnswer": "False"
         },
         {
             "questionId": "009",
@@ -312,7 +312,7 @@ let questions = {
             "questionCategory": "javascript",
             "difficulty": "easy",
             "category": "syntax",
-            "question": "How would you modify this element: <p id='target'>hello </p>",
+            "question": "How would you modify this element: <code><</code>p> id='target'>hello<code></p></code>",
             "answers": [
                 { "ans": "getElementById('target').text == 'hello world'", "selected": "false" },
                 { "ans": "document.getElementById('target').innerHTML = 'hello world'", "selected": "false" },
@@ -320,6 +320,117 @@ let questions = {
                 { "ans": "document.getElementByName('target').innerHTML = 'hello world'", "selected": "false" }
             ],
             "correctAnswer": "document.getElementById('target').innerHTML = 'hello world'"
+        },
+        {
+            "questionId": "670",
+            "questionCategory": "javascript",
+            "difficulty": "medium",
+            "category": "misc",
+            "question": "What is the danger of trying to determine if 'bar' is an object with: 'typeof bar === 'object''",
+            "answers": [
+                { "ans": "Null is technically an object in javascript", "selected": "false" },
+                { "ans": "Nothing it would work fine", "selected": "false" },
+                { "ans": "You can't test the type of an object with the strict equality operator", "selected": "false" }
+            ],
+            "correctAnswer": "Null is technically an object in javascript",
+        },
+        {
+            "questionId": "671",
+            "questionCategory": "javascript",
+            "difficulty": "easy",
+            "category": "variables",
+            "question": "What will the code below output? <br> console.log(0.1 + 0.2) <br> console.log(0.1 + 0.2 == 0.3)",
+            "answers": [
+                { "ans": "0.3, true", "selected": "false" },
+                { "ans": "0.3, false", "selected": "false" },
+                { "ans": "0.30000000000000004, false", "selected": "false" },
+                { "ans": "0.300, true", "selected": "false" }
+            ],
+            "correctAnswer": "0.30000000000000004, false"
+        },
+        {
+            "questionId": "672",
+            "questionCategory": "javascript",
+            "difficulty": "easy",
+            "category": "syntax",
+            "question": "What is the proper way to stop this interval: let x = setInterval(() => {console.log('hello')}, 100)",
+            "answers": [
+                { "ans": "x.clearInterval()", "selected": "false" },
+                { "ans": "x.stopInterval()", "selected": "false" },
+                { "ans": "stopInterval(x)", "selected": "false" },
+                { "ans": "clearInterval(x)", "selected": "false" }
+            ],
+            "correctAnswer": "clearInterval(x)"
+        },
+        {
+            "questionId": "673",
+            "questionCategory": "javascript",
+            "difficulty": "medium",
+            "category": "functions",
+            "question": "What would this function return?: function hello() { alert('hello'); }",
+            "answers": [
+                { "ans": "undefined", "selected": "false" },
+                { "ans": "'hello'", "selected": "false" },
+                { "ans": "alert('hello')", "selected": "false" },
+                { "ans": "''", "selected": "false" }
+            ],
+            "correctAnswer": "undefined"
+        },
+        {
+            "questionId": "674",
+            "questionCategory": "javascript",
+            "difficulty": "medium",
+            "category": "misc",
+            "question": "What will this output: typeof undefined == typeof NULL",
+            "answers": [
+                { "ans": "Undefined", "selected": "false" },
+                { "ans": "False", "selected": "false" },
+                { "ans": "Null", "selected": "false" },
+                { "ans": "True", "selected": "false" }
+            ],
+            "correctAnswer": "true"
+        },
+        {
+            "questionId": "675",
+            "questionCategory": "javascript",
+            "difficulty": "medium",
+            "category": "misc",
+            "question": "How would you round 7.25 to the nearest integer?",
+            "answers": [
+                { "ans": "round(7.25)", "selected": "false" },
+                { "ans": "Math.round(7.25)", "selected": "false" },
+                { "ans": "Math.rnd(7.25)", "selected": "false" },
+                { "ans": "Math.rndUp(7.25)", "selected": "false" }
+            ],
+            "correctAnswer": "Math.round(7.25)"
+        },
+        {
+            "questionId": "676",
+            "questionCategory": "javascript",
+            "difficulty": "easy",
+            "category": "syntax",
+            "question": "What is the correct way to write an IF statement in javascript?",
+            "answers": [
+                { "ans": "if i == 5", "selected": "false" },
+                { "ans": "if (i == 5)", "selected": "false" },
+                { "ans": "if (i = 5)", "selected": "false" },
+                { "ans": "if i = 5", "selected": "false" }
+            ],
+            "correctAnswer": "if (i == 5)"
+        }, 
+        {
+            "questionId": "677",
+            "questionCategory": "javascript",
+            "difficulty": "easy",
+            "category": "syntax",
+            "question": "What is the correct way to link a JS file called script.js?",
+            "answers": [
+                { "ans": "<script src='script.js'></script>", "selected": "false" },
+                { "ans": "<script href='script.js'></script>", "selected": "false" },
+                { "ans": "<script href='script.js'/>", "selected": "false" },
+                { "ans": "<script name='script.js'/>", "selected": "false" }
+            ],
+            "correctAnswer": "<script src='script.js'></script>"
         }
     ],
 }

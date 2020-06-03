@@ -3,10 +3,10 @@
     <div class="center">
         <div routerLinkActive="active-link" [routerLink]="['/sign-in']">Home</div>
         <div routerLinkActive="active-link" [routerLink]="['/quizzes']" (click)="showSnackbar('Must be logged in', 'Close')">Quizzes</div>
-        <div routerLinkActive="active-link" [routerLink]="['/stats/:userid']" (click)="showSnackbar('Must be logged in', 'Close')">Stats</div>
+        <div routerLinkActive="active-link" [routerLink]="['/stats/' + userName]" (click)="showSnackbar('Must be logged in', 'Close')">Stats</div>
     </div>
     <div class="right">
-        <button>Contact</button>
+        <button [routerLink]="['/settings/' + userName]">Settings</button>
     </div>
 </div>
 <div class="header-wrapper">

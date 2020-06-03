@@ -19,6 +19,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { QuizResultsComponent } from './components/quiz-results/quiz-results.component';
 import { ReviewQuestionsComponent } from './components/review-questions/review-questions.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ReviewQuestionsComponent } from './components/review-questions/review-q
     FooterComponent,
     QuizComponent,
     QuizResultsComponent,
-    ReviewQuestionsComponent
+    ReviewQuestionsComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

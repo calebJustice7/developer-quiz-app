@@ -55,20 +55,12 @@
         .answers {
             margin: 15px auto;
             width: 95%;
-            cursor: pointer;
             font-size: 1.2em;
-            transition: 0.2s all;
             padding: 0;
 
             div {
                 padding: 25px;
             }
-        }
-
-        .answers:hover {
-            background-color: rgba(83, 245, 83, 0.5);
-            width: 98%;
-            font-size: 1.23em;
         }
     }
 }

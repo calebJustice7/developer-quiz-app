@@ -26,6 +26,7 @@ export class QuizComponent implements OnInit, OnDestroy {
   private userData: User;
   public timer;
   public timerSub;
+  public answered: boolean = false;
   public times = {
     ms: 0,
     s: 0,
@@ -33,6 +34,8 @@ export class QuizComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void { 
+    this.answered = true;
+    this.data = this.shuffleArr(this.data);
     this.timer = interval(10);
     this.timerSub = this.timer.subscribe(time => {
       this.times.ms++;
@@ -55,6 +58,19 @@ export class QuizComponent implements OnInit, OnDestroy {
     })
   }
 
+  shuffleArr(array) {
+      var currentIndex = array.length, temporaryValue, randomIndex;
+  
+      while(0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+      return array;
+  }
+
   ngOnDestroy() {
     this.sub.unsubscribe();
     this.timerSub.unsubscribe();
@@ -71,9 +87,13 @@ export class QuizComponent implements OnInit, OnDestroy {
       this.quizService.val = dataObject;
       this.router.navigate(['/quiz-results']);
     } else {
-      this.activeQuestion = this.data[this.activeQuestionIndex];
-      this.activeQuestionIndex++; 
-      this.activeQuestion.answers.forEach(ans => ans.selected = false);
+      if(this.answered) {
+        this.activeQuestion = this.data[this.activeQuestionIndex];
+        this.activeQuestionIndex++; 
+        this.activeQuestion.answers.forEach(ans => ans.selected = false);
+        this.activeQuestion.answers = this.shuffleArr(this.activeQuestion.answers);
+        this.answered = false;
+      }
     }
   }
   showModal() {
@@ -90,6 +110,7 @@ export class QuizComponent implements OnInit, OnDestroy {
   }
 
   selectAnswer(ans: string, index) {
+    this.answered = true;
     this.activeQuestion.answers.forEach(ans => ans.selected = false);
     this.activeQuestion.answers[index].selected = true;
     if(this.activeQuestion.correctAnswer == ans) {
