@@ -1,0 +1,39 @@
+.community-wrapper {
+    padding-top: 75px;
+
+    mat-card {
+        width: 80%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        .quiz {
+            box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.4);
+            text-align: center;
+
+            .quiz-name {
+                font-weight: bold;
+                font-size: 1.3em;
+                margin: 15px 0;
+            }
+            .created-by {
+                margin-top: -10px;
+                margin-bottom: 5px;
+                font-weight: 300;
+            }
+
+            .tag-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                div{
+                    margin: 5px 10px;
+                }
+            }
+            button{
+                margin: 15px 0;
+            }
+        }
+    }
+}

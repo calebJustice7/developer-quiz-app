@@ -1,0 +1,37 @@
+<div class="generate-quiz-wrapper">
+    <mat-card>
+        <mat-card-content class="input-wrapper-custom">
+            <mat-card-title>Quiz Name</mat-card-title>
+            <mat-form-field class="mat-form-field" appearance="fill">
+                <input matInput [(ngModel)]="quizName" placeholder="Quiz Name">
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-content class="input-wrapper-custom">
+            <mat-card-title>Languages</mat-card-title>
+            <div class="mat-form-field input-row">
+                <mat-checkbox [checked]="lang.selected" (change)="updateLanguages(lang)" *ngFor="let lang of languages">{{ lang.language }}</mat-checkbox>
+            </div>
+        </mat-card-content>
+        <mat-card-content class="input-wrapper-custom">
+            <mat-card-title>Difficulties</mat-card-title>
+            <div class="mat-form-field input-row">
+                <mat-checkbox [checked]="diff.selected" (change)="updateDifficulties(diff)" *ngFor="let diff of difficulties">{{ diff.name }}</mat-checkbox>
+            </div>
+        </mat-card-content>
+        <mat-card-content class="input-wrapper-custom">
+            <mat-card-title>Include Duplicates</mat-card-title>
+            <mat-checkbox>YES</mat-checkbox>
+        </mat-card-content>
+        <mat-card-content [class]="max > 1 ? 'input-wrapper-custom' : 'input-wrapper-custom hideSlider'">
+            <mat-card-title>Number Of Questions</mat-card-title>
+            <div class="mat-form-field">
+                <mat-slider [disabled]="max > 1 ? false : true" [max]="max" (input)="sliderEvent($event)" [(ngModel)]="sliderValue" step="1"></mat-slider>
+                <span>{{ sliderValue }}</span>
+            </div>
+        </mat-card-content>
+        <mat-card-content class="input-wrapper-custom">
+            <button color="primary" mat-raised-button>Save and take</button>
+            <button color="primary" mat-raised-button (click)="saveQuiz()">Save</button>
+        </mat-card-content>
+    </mat-card>
+</div>

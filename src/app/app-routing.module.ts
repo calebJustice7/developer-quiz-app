@@ -7,6 +7,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { QuizResultsComponent } from './components/quiz-results/quiz-results.component';
 import { ReviewQuestionsComponent } from './components/review-questions/review-questions.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { GenerateQuizComponent } from './components/generate-quiz/generate-quiz.component';
+import { CommunityQuizzesComponent } from './components/community-quizzes/community-quizzes.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'quiz-results', component: QuizResultsComponent, canActivate: [AuthGuard] },
   { path: 'review-questions/:id', component: ReviewQuestionsComponent, canActivate: [AuthGuard] },
   { path: 'settings/:userName', component: SettingsComponent, canActivate: [AuthGuard] },
+  { path: 'generate-quiz', component: GenerateQuizComponent, canActivate: [AuthGuard] },
+  { path: 'community', component: CommunityQuizzesComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '' }
 ];
 

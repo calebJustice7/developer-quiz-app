@@ -19,6 +19,27 @@
                 width: 17%;
             }
         }
+
+        .create-quiz {
+            margin-bottom: 50px;
+            color: white;
+            background-color: #24262A;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 30px 1em;
+
+            mat-card-title {
+                margin-left: 30px;
+                margin-right: 50px;
+                width: 200px;
+            }
+            
+            button {
+                color: white;
+                background-color: #0E84FF;
+            }
+        }
     }
 
     .quiz-category {

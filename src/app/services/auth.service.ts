@@ -67,4 +67,13 @@ export class AuthService {
     const statsRef: AngularFirestoreDocument<any> = this.afs.doc(`stats/${id}`);
     statsRef.set(data);
   }
+
+  saveNewQuiz(quiz, id) {
+    const quizRef: AngularFirestoreDocument<any> = this.afs.doc(`gen-quizzes/${quiz.quizName}`);
+    quizRef.set(quiz);
+  }
+
+  getQuizzes(){
+    return this.afs.collection('gen-quizzes').valueChanges();
+  }
 }

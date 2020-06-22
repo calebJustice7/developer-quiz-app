@@ -1,0 +1,21 @@
+<div class="community-wrapper" *ngIf="!isQuizActive">
+    <mat-card class="quizzes">
+        <div class="quiz" *ngFor="let quiz of quizzes">
+            <div class="quiz-name">{{ quiz.quizName }}</div>
+            <div class="created-by">Created by: {{ quiz.createdBy }}</div>
+            <div class="tag-wrapper">
+                <span>Languages: </span>
+                <div *ngFor="let lang of quiz.languages">{{ lang }}</div>
+            </div>
+            <div class="tag-wrapper">
+                <span>Difficulties: </span>
+                <div *ngFor="let diff of quiz.difficulties">{{ diff }}</div>
+            </div>
+            <button (click)="takeQuiz(quiz)" color="primary" mat-raised-button>Take Quiz</button>
+        </div>
+    </mat-card>
+</div>
+
+<div *ngIf="isQuizActive">
+    <app-quiz (quitEvent)="cancelQuiz($event)" [data]="questionsToSend"></app-quiz>
+</div>

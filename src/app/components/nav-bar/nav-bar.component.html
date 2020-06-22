@@ -4,6 +4,7 @@
         <div routerLinkActive="active-link" [routerLink]="['/sign-in']">Home</div>
         <div routerLinkActive="active-link" [routerLink]="['/quizzes']" (click)="showSnackbar('Must be logged in', 'Close')">Quizzes</div>
         <div routerLinkActive="active-link" [routerLink]="['/stats/' + userName]" (click)="showSnackbar('Must be logged in', 'Close')">Stats</div>
+        <div routerLinkActive="active-link" [routerLink]="['/community']" (click)="showSnackbar('Must be logged in', 'Close')">Community</div>
     </div>
     <div class="right">
         <button [routerLink]="['/settings/' + userName]">Settings</button>

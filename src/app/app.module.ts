@@ -20,6 +20,8 @@ import { QuizComponent } from './components/quiz/quiz.component';
 import { QuizResultsComponent } from './components/quiz-results/quiz-results.component';
 import { ReviewQuestionsComponent } from './components/review-questions/review-questions.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { GenerateQuizComponent } from './components/generate-quiz/generate-quiz.component';
+import { CommunityQuizzesComponent } from './components/community-quizzes/community-quizzes.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { SettingsComponent } from './components/settings/settings.component';
     QuizComponent,
     QuizResultsComponent,
     ReviewQuestionsComponent,
-    SettingsComponent
+    SettingsComponent,
+    GenerateQuizComponent,
+    CommunityQuizzesComponent
   ],
   imports: [
     BrowserModule,

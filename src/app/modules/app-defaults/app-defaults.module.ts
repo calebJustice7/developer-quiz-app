@@ -7,6 +7,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 const imports = [
   FormsModule,
@@ -15,7 +17,9 @@ const imports = [
   MatCardModule,
   MatSnackBarModule,
   MatSliderModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatFormFieldModule,
+  MatInputModule
 ]
 
 @NgModule({
