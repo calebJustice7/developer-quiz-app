@@ -10,46 +10,63 @@ export class QuizService {
   constructor() { }
 
   public val;
-  public isQuizActive: boolean = false;
+  public isQuizActive: boolean = false;  
 
-  getPossibleNumOfQuestions(difficulties, languages, lengthBool?){
+  // either returns array of questions with filters, or returns length of array with filters
+
+  getPossibleNumOfQuestions(difficulties, languages, lengthBool?) {
     let questionsArr = questions;
     let selected = [...questionsArr.CSS, ...questionsArr.HTML, ...questionsArr.Javascript];
     selected = selected.filter(ques => {
-      for(let i = 0; i < difficulties.length; i++) {
-        if(difficulties[i] == ques.difficulty) return true;
+      for (let i = 0; i < difficulties.length; i++) {
+        if (difficulties[i] == ques.difficulty) return true;
       }
     })
     selected = selected.filter(ques => {
-      for(let i = 0; i < languages.length; i++) {
-        if(languages[i].toLowerCase() == ques.questionCategory) return true;
+      for (let i = 0; i < languages.length; i++) {
+        if (languages[i].toLowerCase() == ques.questionCategory) return true;
       }
     })
-    if(lengthBool) {
-      console.log(selected.length);
+    if (lengthBool) {
       return selected.length;
     } else {
       return selected;
     }
   }
 
-  generateQuestions(quizName, numOfQuestions, difficulties, languages, userName){
+  // generates questions depending on if they include duplicates or not
+
+  generateQuestions(quizName, numOfQuestions, difficulties, languages, userName, includeDuplicates) {
     let customQuiz = {
       createdBy: userName,
       quizName: quizName,
       questions: [],
       difficulties: difficulties,
-      languages: languages
+      languages: languages,
+      hasDuplicates: includeDuplicates ? 'Yes' : 'No'
     };
-    
-    let selected: any = this.getPossibleNumOfQuestions(difficulties, languages);
 
-      let maxQuestions = 0;
-      while(maxQuestions < numOfQuestions) {
+    let selected: any = this.getPossibleNumOfQuestions(difficulties, languages);
+    let maxQuestions = 0;
+
+    if(includeDuplicates){
+      while (maxQuestions < numOfQuestions) {
         let randNum = Math.floor(Math.random() * selected.length);
         customQuiz.questions.push(selected[randNum]);
         maxQuestions++;
-      } 
+      }
+    } else {
+      let arr = [];
+      while(maxQuestions < numOfQuestions) {
+        let randNum = Math.floor(Math.random() * selected.length);
+        let idx = arr.indexOf(selected[randNum]);
+        if(idx == -1){
+          arr.push(selected[randNum]);
+          maxQuestions++;
+        } 
+      };
+      customQuiz.questions = arr;
+    }
     return customQuiz;
   }
 }

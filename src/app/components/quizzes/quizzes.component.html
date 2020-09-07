@@ -1,9 +1,10 @@
 <div class="quiz-page-wrapper" *ngIf="!isQuizActive">
     <div class="quiz-choice-wrapper">
         <mat-card class="create-quiz">
-            <mat-card-title>Generate Quiz</mat-card-title>
+            <mat-card-title>Create Your Own Quiz</mat-card-title>
             <mat-card-content>
-                <button (click)="onGenerateQuiz()" mat-raised-button>Generate</button>
+                <button (click)="onCreateQuiz()" mat-raised-button>Custom quiz</button>
+                <button (click)="onGenerateQuiz()" mat-raised-button>Generate Quiz</button>
             </mat-card-content>
         </mat-card>
         <mat-card *ngFor="let choice of categories; let i = index">

@@ -1,0 +1,79 @@
+<div class="custom-quiz-wrapper">
+    <mat-card class="title">
+        <mat-card-title>Create Your Own Quiz</mat-card-title>
+    </mat-card>
+
+    <mat-card class="main-wrapper" *ngIf="inputsToShow[0]">
+        <mat-card-title>First things first...</mat-card-title>
+        <mat-card-content>Tell us about your quiz</mat-card-content>
+        <mat-card-content>
+            <mat-form-field class="custom-input-field">
+                <mat-label>Name of your quiz</mat-label>
+                <input [(ngModel)]="quizData.name" matInput>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-content>
+            <button mat-raised-button (click)="switchToSecondInput($event)">Cancel</button>
+            <button mat-raised-button (click)="switchToSecondInput($event)">Next Step</button>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="main-wrapper" *ngIf="inputsToShow[1]">
+        <mat-card-title>What topics...</mat-card-title>
+        <mat-card-content>Tell us about your quiz</mat-card-content>
+        <mat-card-content>
+            <mat-form-field class="custom-input-field">
+                <mat-label>Topics your quiz will include</mat-label>
+                <input (keyup.enter)="addTopic()" [(ngModel)]="topic" matInput>
+            </mat-form-field>
+            <button class="topics-submit-button" color="primary" mat-raised-button (click)="addTopic()">Add</button>
+            <br>
+            <span class="topics-wrapper">
+                <div *ngFor="let topic of quizData.topics; let topicIndex = index" class="topic">
+                    <div>{{topic}}</div>
+                    <i (click)="deleteTopic(topicIndex)" class="fas fa-minus-circle"></i>
+                </div>
+            </span>
+        </mat-card-content>
+        <mat-card-content>
+            <button mat-raised-button (click)="switchToThirdInput($event)">Previous Step</button>
+            <button mat-raised-button (click)="switchToThirdInput($event)">Next Step</button>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="main-wrapper" *ngIf="inputsToShow[2]">
+        <mat-card-title>Brief Description</mat-card-title>
+        <mat-card-content>Almost there...</mat-card-content>
+        <mat-card-content>
+            <mat-form-field class="custom-input-field">
+                <mat-label>Brief Description</mat-label>
+                <textarea [(ngModel)]="quizData.description" matInput></textarea>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-content>
+            <button mat-raised-button (click)="switchToFourthInput($event)">Previous Step</button>
+            <button mat-raised-button (click)="switchToFourthInput($event)">Next Step</button>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="main-wrapper" *ngIf="inputsToShow[3]">
+        <mat-card-title>Difficulty?</mat-card-title>
+        <mat-card-content>Final Step...</mat-card-content>
+        <mat-card-content>
+            <mat-form-field appearance="fill">
+                <mat-label>Difficulty</mat-label>
+                <mat-select [(ngModel)]="quizData.difficulty">
+                    <mat-option value="none">None</mat-option>
+                    <mat-option value="easy">Easy</mat-option>
+                    <mat-option value="medium">Medium</mat-option>
+                    <mat-option value="hard">Hard</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-content>
+            <button mat-raised-button (click)="finalInput($event)">Previous Step</button>
+            <button mat-raised-button (click)="finalInput($event)">Next Step</button>
+        </mat-card-content>
+    </mat-card>
+
+</div>

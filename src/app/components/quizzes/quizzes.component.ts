@@ -82,6 +82,10 @@ export class QuizzesComponent implements OnInit {
     this.router.navigate(['/generate-quiz']);
   }
 
+  onCreateQuiz(){
+    this.router.navigate(['/create-quiz']);
+  }
+
   sliderEvent() {
     this.filterByCategory = [];
     this.filteredQuestions = [];

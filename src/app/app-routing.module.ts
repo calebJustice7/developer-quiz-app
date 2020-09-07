@@ -9,6 +9,7 @@ import { ReviewQuestionsComponent } from './components/review-questions/review-q
 import { SettingsComponent } from './components/settings/settings.component';
 import { GenerateQuizComponent } from './components/generate-quiz/generate-quiz.component';
 import { CommunityQuizzesComponent } from './components/community-quizzes/community-quizzes.component';
+import { CustomQuizComponent } from './components/custom-quiz/custom-quiz.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'settings/:userName', component: SettingsComponent, canActivate: [AuthGuard] },
   { path: 'generate-quiz', component: GenerateQuizComponent, canActivate: [AuthGuard] },
   { path: 'community', component: CommunityQuizzesComponent, canActivate: [AuthGuard] },
+  { path: 'create-quiz', component: CustomQuizComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '' }
 ];
 

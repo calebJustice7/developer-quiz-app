@@ -9,6 +9,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 
 const imports = [
   FormsModule,
@@ -19,7 +21,9 @@ const imports = [
   MatSliderModule,
   MatCheckboxModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatSelectModule,
+  MatIconModule
 ]
 
 @NgModule({

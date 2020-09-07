@@ -22,6 +22,7 @@ import { ReviewQuestionsComponent } from './components/review-questions/review-q
 import { SettingsComponent } from './components/settings/settings.component';
 import { GenerateQuizComponent } from './components/generate-quiz/generate-quiz.component';
 import { CommunityQuizzesComponent } from './components/community-quizzes/community-quizzes.component';
+import { CustomQuizComponent } from './components/custom-quiz/custom-quiz.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CommunityQuizzesComponent } from './components/community-quizzes/commun
     ReviewQuestionsComponent,
     SettingsComponent,
     GenerateQuizComponent,
-    CommunityQuizzesComponent
+    CommunityQuizzesComponent,
+    CustomQuizComponent
   ],
   imports: [
     BrowserModule,

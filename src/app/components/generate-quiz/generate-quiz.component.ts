@@ -29,28 +29,36 @@ export class GenerateQuizComponent implements OnInit, OnDestroy {
   public userName: string;
   public id;
   public max: any = 1;
+  public includeDuplicates: boolean = false;
 
   ngOnInit(): void {
     this.sub = this.authService.user$.subscribe(user => {
       if(user != null) {
         this.userName = user.displayName;
         this.id = user.uid;
-        this.authService.signedIn = true;
       }
     })
   }
-
   ngOnDestroy(){ 
     this.sub.unsubscribe();
   }
 
-  sliderEvent(eve){
-    this.sliderValue = eve.value;
+  getMax(getCurrent?){
+    if(!this.includeDuplicates) {
+      this.max = 1;
+      this.max = this.quizService.getPossibleNumOfQuestions(this.filterByDifficulty, this.filterByLanguages, true);
+    }
+    if(getCurrent) {
+      return this.quizService.getPossibleNumOfQuestions(this.filterByDifficulty, this.filterByLanguages, true);
+    }
   }
 
-  getMax(){
-    this.max = 1;
-    this.max = this.quizService.getPossibleNumOfQuestions(this.filterByDifficulty, this.filterByLanguages, true);
+  onDuplicateChange() {
+    this.includeDuplicates = !this.includeDuplicates;
+    if(this.includeDuplicates) {
+      this.max = 100;
+    } else this.getMax();
+    this.sliderValue = 0;
   }
 
   updateDifficulties(diff) {
@@ -80,8 +88,8 @@ export class GenerateQuizComponent implements OnInit, OnDestroy {
   }
 
   saveQuiz(){
-    if(this.quizName != undefined && this.sliderValue > 1 && this.filterByDifficulty.length > 0 && this.filterByLanguages.length > 0) {
-      let newQuiz = this.quizService.generateQuestions(this.quizName, this.sliderValue, this.filterByDifficulty, this.filterByLanguages, this.userName);
+    if(this.quizName != undefined && (this.sliderValue > 1) && this.filterByDifficulty.length > 0 && this.filterByLanguages.length > 0) {
+      let newQuiz = this.quizService.generateQuestions(this.quizName, this.sliderValue, this.filterByDifficulty, this.filterByLanguages, this.userName, this.includeDuplicates);
       this.authService.saveNewQuiz(newQuiz, this.id);
       this._snackBar.open('Quiz created!', 'close', {
         duration: 2000,

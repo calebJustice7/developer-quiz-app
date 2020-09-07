@@ -20,12 +20,12 @@
         </mat-card-content>
         <mat-card-content class="input-wrapper-custom">
             <mat-card-title>Include Duplicates</mat-card-title>
-            <mat-checkbox>YES</mat-checkbox>
+            <mat-checkbox [checked]="includeDuplicates" (change)="onDuplicateChange()">YES</mat-checkbox>
         </mat-card-content>
         <mat-card-content [class]="max > 1 ? 'input-wrapper-custom' : 'input-wrapper-custom hideSlider'">
             <mat-card-title>Number Of Questions</mat-card-title>
             <div class="mat-form-field">
-                <mat-slider [disabled]="max > 1 ? false : true" [max]="max" (input)="sliderEvent($event)" [(ngModel)]="sliderValue" step="1"></mat-slider>
+                <input matInput type="number" [(ngModel)]="sliderValue" min="1" [max]="max" class="number" placeholder="Questions"/>
                 <span>{{ sliderValue }}</span>
             </div>
         </mat-card-content>
